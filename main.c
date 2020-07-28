@@ -20,11 +20,6 @@ int max(int arr[], int size) {
     return max;
 }
 
-void resetArray(int arr[], int size) {
-    for (int i=0; i<size; i++)
-        arr[i] = 0;
-}
-
 void countSort(int arr[], int arrSize, int countArray[], int countArraysize) {
     for (int i=0; i<arrSize; i++) {
         countArray[arr[i]-1]++;
@@ -33,9 +28,8 @@ void countSort(int arr[], int arrSize, int countArray[], int countArraysize) {
     int k = 0;
     for (int j=0; j<countArraysize; j++) {
         while (countArray[j] != 0) {
-            arr[k] = j+1;
+            arr[k++] = j+1;
             countArray[j]--;
-            k++;
         }
     }
 }
@@ -50,8 +44,7 @@ int main() {
     
     
     int biggest = max(arr, n);
-    int* countArray = (int*) malloc(biggest * sizeof(int));;
-    resetArray(countArray, biggest);
+    int* countArray = (int*) calloc(biggest, sizeof(int));;
     
     printf("Before sorting: \n");
     printArray(arr, n);
