@@ -21,9 +21,8 @@ int max(int arr[], int size) {
 }
 
 void countSort(int arr[], int arrSize, int countArray[], int countArraysize) {
-    for (int i=0; i<arrSize; i++) {
+    for (int i=0; i<arrSize; i++)
         countArray[arr[i]-1]++;
-    }
     
     int k = 0;
     for (int j=0; j<countArraysize; j++) {
